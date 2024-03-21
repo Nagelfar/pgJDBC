@@ -13,7 +13,7 @@ class ExecuteNonQuery {
     }
 
     private static int doExecute(SqlBuilder builder) throws SQLException {
-        if (builder.parameter() == null) {
+        if (builder.parameters() == null) {
             var statement = builder.connection().createStatement();
             return statement.executeUpdate(builder.queryString());
         } else {

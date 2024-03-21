@@ -7,14 +7,14 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.function.Function;
 
-public class ExecuteQuery {
+class ExecuteQuery {
     public static <T> Collection<T> execute(SqlBuilder builder, Function<RowReader, T> map) {
         try {
             var resultSet = doExecuteQuery(builder);
             var results = new ArrayList<T>();
+            var rowReader = new RowReader(resultSet);
             while (resultSet.next()) {
-                var row = new RowReader(resultSet);
-                results.add(map.apply(row));
+                results.add(map.apply(rowReader));
             }
             return results;
         } catch (SQLException e) {
@@ -23,7 +23,7 @@ public class ExecuteQuery {
     }
 
     private static ResultSet doExecuteQuery(SqlBuilder builder) throws SQLException {
-        if (builder.parameter() == null) {
+        if (builder.parameters() == null) {
             var statement = builder.connection().createStatement();
 
             return statement.executeQuery(builder.queryString());
@@ -32,29 +32,24 @@ public class ExecuteQuery {
 
             var meta = statement.getParameterMetaData();
 
-            switch (builder.parameter()) {
-                case Sql.Parameter.NamedParameters namedParameters -> {
+            switch (builder.parameters()) {
+                case SqlBuilder.Parameters.Named named -> {
 
                 }
-                case Sql.Parameter.PositionalParameters(var positionalParameters) -> {
+                case SqlBuilder.Parameters.Positional(var positionalParameters) -> {
                     for (int i = 0; i < positionalParameters.size(); i++) {
                         applyParameter(statement, i + 1, positionalParameters.get(i));
                     }
                 }
             }
-
             return statement.executeQuery();
-
         }
-
-
     }
 
-    private static void applyParameter(PreparedStatement statement, int index, Sql.ParameterValue parameter) throws SQLException {
+    private static void applyParameter(PreparedStatement statement, int index, Sql.Value parameter) throws SQLException {
         switch (parameter) {
-            case Sql.ParameterValue.Int(var anInt) -> statement.setInt(index, anInt);
-            case Sql.ParameterValue.Null(var type) -> statement.setNull(index, type);
+            case Sql.Value.Int(var anInt) -> statement.setInt(index, anInt);
+            case Sql.Value.Null(var type) -> statement.setNull(index, type);
         }
     }
-
 }

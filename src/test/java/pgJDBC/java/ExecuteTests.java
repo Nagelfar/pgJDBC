@@ -64,7 +64,7 @@ public class ExecuteTests extends TestBase {
             var result =
                     Sql.from(connection)
                             .query("SELECT * FROM test_table WHERE required_int = ?")
-                            .parameters(Sql.ParameterValue.of(2))
+                            .parameters(Sql.Value.of(2))
                             .execute(ExecuteTests::extractRow);
 
 
@@ -80,7 +80,7 @@ public class ExecuteTests extends TestBase {
             var result =
                     Sql.from(connection)
                             .query("SELECT * FROM test_table WHERE optional_int = ?")
-                            .parameters(Sql.ParameterValue.of(null))
+                            .parameters(Sql.Value.of(null))
                             .execute(ExecuteTests::extractRow);
 
             assertThat(result).isEmpty();

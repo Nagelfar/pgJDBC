@@ -4,7 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="facb028d-ff83-4e01-9e75-0dff39e2c74b" name="Changes" comment="" />
+    <list default="true" id="facb028d-ff83-4e01-9e75-0dff39e2c74b" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pgJDBC/java/ExecuteNonQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pgJDBC/java/ExecuteNonQuery.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pgJDBC/java/ExecuteQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pgJDBC/java/ExecuteQuery.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pgJDBC/java/RowReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pgJDBC/java/RowReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pgJDBC/java/Sql.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pgJDBC/java/Sql.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pgJDBC/java/SqlBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pgJDBC/java/SqlBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/pgJDBC/java/ExecuteTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pgJDBC/java/ExecuteTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/pgJDBC/java/InitialTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pgJDBC/java/InitialTest.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -15,12 +26,36 @@
       <ProjectState />
     </projectState>
   </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <projects_view />
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Record" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 1
-}]]></component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
   <component name="ProjectId" id="2dKWuxgIZIISfsmUCc8WPGCKLY9" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -29,14 +64,201 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Docker.docker-compose.yml: Compose Deployment.executor": "Run",
+    "Gradle.Build pgJDBC.Java.executor": "Run",
+    "Gradle.ExecuteNonQueryTests.can_execute_an_insert_statement_without_parameters.executor": "Run",
+    "Gradle.ExecuteTests.can_execute_on_empty_query_result.executor": "Run",
+    "Gradle.ExecuteTests.can_receive_single_row_result_with_all_values_present.executor": "Run",
+    "Gradle.ExecuteTests.can_use_positional_parameters_to_filter.executor": "Run",
+    "Gradle.ExecuteTests.executor": "Run",
+    "Gradle.InitialTest.canConnect (1).executor": "Debug",
+    "Gradle.InitialTest.canConnect.executor": "Run",
+    "Gradle.InitialTest.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/fm/code/oss/pgJDBC.Java",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
     "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
+    ]
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="MoveMembersDialog.RECENTS_KEY">
+      <recent name="pgJDBC.Java.Sql" />
+      <recent name="pgJDBC.Java" />
+    </key>
+    <key name="MoveInnerDialog.RECENTS_KEY">
+      <recent name="pgJDBC.java" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Gradle.ExecuteTests">
+    <configuration name="ExecuteNonQueryTests.can_execute_an_insert_statement_without_parameters" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;pgJDBC.java.ExecuteNonQueryTests.can_execute_an_insert_statement_without_parameters&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="ExecuteTests" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;pgJDBC.java.ExecuteTests&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="ExecuteTests.can_execute_on_empty_query_result" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;pgJDBC.java.ExecuteTests.can_execute_on_empty_query_result&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="ExecuteTests.can_receive_single_row_result_with_all_values_present" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;pgJDBC.java.ExecuteTests.can_receive_single_row_result_with_all_values_present&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="ExecuteTests.can_use_positional_parameters_to_filter" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;pgJDBC.java.ExecuteTests.can_use_positional_parameters_to_filter&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
+      <deployment type="docker-compose.yml">
+        <settings />
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Gradle.ExecuteTests.can_use_positional_parameters_to_filter" />
+      <item itemvalue="Gradle.ExecuteNonQueryTests.can_execute_an_insert_statement_without_parameters" />
+      <item itemvalue="Gradle.ExecuteTests" />
+      <item itemvalue="Gradle.ExecuteTests.can_execute_on_empty_query_result" />
+      <item itemvalue="Gradle.ExecuteTests.can_receive_single_row_result_with_all_values_present" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.ExecuteTests" />
+        <item itemvalue="Gradle.ExecuteTests.can_use_positional_parameters_to_filter" />
+        <item itemvalue="Gradle.ExecuteNonQueryTests.can_execute_an_insert_statement_without_parameters" />
+        <item itemvalue="Gradle.ExecuteTests.can_receive_single_row_result_with_all_values_present" />
+        <item itemvalue="Gradle.ExecuteTests.can_execute_on_empty_query_result" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-21.0.2-openjdk-21.0.2-4caba194b151-322ed176" />
+      </set>
+    </attachedChunks>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -45,8 +267,30 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1709757476922</updated>
-      <workItem from="1709757477965" duration="3000" />
+      <workItem from="1709757477965" duration="4293000" />
+      <workItem from="1710173777179" duration="4975000" />
+      <workItem from="1710250022105" duration="11172000" />
+      <workItem from="1710795720562" duration="5976000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/pgJDBC/java/InitialTest.java</url>
+          <line>18</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/pgJDBC/java/InitialTest.java</url>
+          <line>15</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

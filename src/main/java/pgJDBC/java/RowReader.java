@@ -6,7 +6,6 @@ import java.util.Optional;
 import java.util.UUID;
 
 public class RowReader {
-
     private final ResultSet resultSet;
 
     public RowReader(ResultSet resultSet) {
