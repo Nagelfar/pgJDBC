@@ -16,7 +16,7 @@ public class Sql {
         return new SqlBuilder(
                 new ConnectionConfiguration(connection, TypeMap.defaultTypeMap),
                 null,
-                null
+                new SqlBuilder.Parameters.NoParameters()
         );
     }
 

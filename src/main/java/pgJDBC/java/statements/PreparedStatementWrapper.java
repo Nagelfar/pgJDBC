@@ -1,4 +1,4 @@
-package pgJDBC.java.prepared;
+package pgJDBC.java.statements;
 
 import pgJDBC.java.ConnectionConfiguration;
 import pgJDBC.java.Sql;

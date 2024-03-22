@@ -1,22 +1,14 @@
-package pgJDBC.java.prepared;
+package pgJDBC.java.statements;
 
 import pgJDBC.java.ConnectionConfiguration;
 import pgJDBC.java.Sql;
 
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.List;
 
-public interface SqlPreparedStatement<T extends Sql.Parameter> extends AutoCloseable {
-    ResultSet executeQuery() throws SQLException;
-
-    boolean executeNonQuery() throws SQLException;
-
-    int executeUpdate() throws SQLException;
+public interface SqlPreparedStatement<T extends Sql.Parameter> extends SqlStatement {
 
     void setValue(T parameterType) throws SQLException;
-
 
     static SqlPreparedStatement<Sql.Parameter.Named> named(ConnectionConfiguration conn, String statementWithNames) throws SQLException {
         return new NamedPreparedStatement(conn, statementWithNames);
