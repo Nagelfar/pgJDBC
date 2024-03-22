@@ -6,7 +6,7 @@ import java.util.UUID;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class ExecuteNonQueryTests extends TestBase {
+public class ExecutorTests extends TestBase {
 
     @Test
     void can_execute_an_insert_statement_without_parameters() {

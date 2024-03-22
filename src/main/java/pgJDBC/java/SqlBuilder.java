@@ -39,11 +39,11 @@ public record SqlBuilder(
     }
 
     public int executeNonQuery() {
-        return ExecuteNonQuery.execute(this);
+        return Executor.execute(this);
     }
 
     public <T> Collection<T> execute(Function<RowReader, T> map) {
-        return ExecuteQuery.execute(this, map);
+        return Executor.execute(this, map);
     }
 
     @Override

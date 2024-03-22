@@ -6,6 +6,7 @@ import pgJDBC.java.Sql;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 
 public interface SqlPreparedStatement<T extends Sql.Parameter> extends AutoCloseable {
     ResultSet executeQuery() throws SQLException;
@@ -16,7 +17,7 @@ public interface SqlPreparedStatement<T extends Sql.Parameter> extends AutoClose
 
     void setValue(T parameterType) throws SQLException;
 
-//    static <T extends Sql.Parameter> SqlPreparedStatement<T> from(List<T> parameters)
+
     static SqlPreparedStatement<Sql.Parameter.Named> named(ConnectionConfiguration conn, String statementWithNames) throws SQLException {
         return new NamedPreparedStatement(conn, statementWithNames);
     }
