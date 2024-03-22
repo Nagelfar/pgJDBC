@@ -9,7 +9,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.function.Consumer;
 
-@Testcontainers
+@Testcontainers(parallel = true)
 public abstract class TestBase {
     @Container
     protected JdbcDatabaseContainer database = new PostgreSQLContainerProvider()

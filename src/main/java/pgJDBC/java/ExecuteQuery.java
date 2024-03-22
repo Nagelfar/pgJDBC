@@ -1,10 +1,14 @@
 package pgJDBC.java;
 
+import pgJDBC.java.prepared.SqlPreparedStatement;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Types;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Map;
 import java.util.function.Function;
 
 class ExecuteQuery {
@@ -17,39 +21,43 @@ class ExecuteQuery {
                 results.add(map.apply(rowReader));
             }
             return results;
-        } catch (SQLException e) {
+        } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }
 
-    private static ResultSet doExecuteQuery(SqlBuilder builder) throws SQLException {
+    private static ResultSet doExecuteQuery(SqlBuilder builder) throws Exception {
         if (builder.parameters() == null) {
-            var statement = builder.connection().createStatement();
+            var statement = builder.connection().connection().createStatement();
 
             return statement.executeQuery(builder.queryString());
         } else {
-            var statement = builder.connection().prepareStatement(builder.queryString());
-
-            var meta = statement.getParameterMetaData();
-
             switch (builder.parameters()) {
-                case SqlBuilder.Parameters.Named named -> {
+                case SqlBuilder.Parameters.Named(var parameters) -> {
+                    var statement = SqlPreparedStatement.named(builder.connection(), builder.queryString());
+
+                    for (var parameter : parameters) {
+                        statement.setValue(parameter);
+                    }
+
+                    return statement.executeQuery();
 
                 }
                 case SqlBuilder.Parameters.Positional(var positionalParameters) -> {
-                    for (int i = 0; i < positionalParameters.size(); i++) {
-                        applyParameter(statement, i + 1, positionalParameters.get(i));
-                    }
+                    var statement =
+                            SqlPreparedStatement.positional(
+                                    builder.connection(),
+                                    builder.queryString()
+                            );
+
+                    for (var parameter : positionalParameters)
+                        statement.setValue(parameter);
+
+                    return statement.executeQuery();
                 }
+
             }
-            return statement.executeQuery();
         }
     }
 
-    private static void applyParameter(PreparedStatement statement, int index, Sql.Value parameter) throws SQLException {
-        switch (parameter) {
-            case Sql.Value.Int(var anInt) -> statement.setInt(index, anInt);
-            case Sql.Value.Null(var type) -> statement.setNull(index, type);
-        }
-    }
 }

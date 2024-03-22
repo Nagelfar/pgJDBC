@@ -2,13 +2,13 @@ package pgJDBC.java;
 
 import org.intellij.lang.annotations.Language;
 
-import java.sql.Connection;
 import java.util.Collection;
 import java.util.List;
 import java.util.function.Function;
+import java.util.stream.IntStream;
 
 public record SqlBuilder(
-        Connection connection,
+        ConnectionConfiguration connection,
         String queryString,
         Parameters parameters
 ) implements AutoCloseable {
@@ -22,11 +22,11 @@ public record SqlBuilder(
         return new SqlBuilder(connection, sql, parameters);
     }
 
-    public SqlBuilder parameters(Sql.NamedParameter... parameters) {
+    public SqlBuilder parameters(Sql.Parameter.Named... parameters) {
         return new SqlBuilder(
                 connection,
                 queryString,
-                new Parameters.Named(List.of(parameters))
+                Parameters.Named.fromArray(parameters)
         );
     }
 
@@ -34,7 +34,7 @@ public record SqlBuilder(
         return new SqlBuilder(
                 connection,
                 queryString,
-                new Parameters.Positional(List.of(parameters))
+                Parameters.Positional.fromArray(parameters)
         );
     }
 
@@ -48,15 +48,25 @@ public record SqlBuilder(
 
     @Override
     public void close() throws Exception {
-        connection.close();
+        connection.connection().close();
     }
 
     sealed interface Parameters {
 
-        record Named(List<Sql.NamedParameter> parameters) implements Parameters {
+        record Named(List<Sql.Parameter.Named> parameters) implements Parameters {
+            public static Named fromArray(Sql.Parameter.Named[] parameters){
+                return new Named(List.of(parameters));
+            }
         }
 
-        record Positional(List<Sql.Value> parameters) implements Parameters {
+        record Positional(List<Sql.Parameter.Positional> parameters) implements Parameters {
+            public static Positional fromArray(Sql.Value[] parameters) {
+                return new Parameters.Positional(
+                        IntStream.range(0, parameters.length)
+                                .mapToObj(index -> new Sql.Parameter.Positional(index, parameters[index]))
+                                .toList()
+                );
+            }
         }
     }
 }

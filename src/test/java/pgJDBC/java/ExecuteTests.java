@@ -80,7 +80,7 @@ public class ExecuteTests extends TestBase {
             var result =
                     Sql.from(connection)
                             .query("SELECT * FROM test_table WHERE optional_int = ?")
-                            .parameters(Sql.Value.of(null))
+                            .parameters(Sql.Value.ofNull(Integer.class))
                             .execute(ExecuteTests::extractRow);
 
             assertThat(result).isEmpty();

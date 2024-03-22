@@ -24,7 +24,7 @@ public class InitialTest extends TestBase {
         var results = Sql
                 .from(conn)
                 .query("SELECT * FROM test_table t WHERE t.columnfoo = :param")
-                .parameters(Sql.parameter("param", Sql.Value.of( 500)))
+                .parameters(Sql.parameter(":param", Sql.Value.of( 500)))
                 .execute(rowReader -> new Result(rowReader.integer("columnfoo")));
     }
 

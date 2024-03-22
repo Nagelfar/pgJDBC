@@ -1,26 +1,47 @@
 package pgJDBC.java;
 
-import java.sql.SQLException;
+import pgJDBC.java.prepared.SqlPreparedStatement;
 
 class ExecuteNonQuery {
 
-    public static int execute(SqlBuilder builder){
+    public static int execute(SqlBuilder builder) {
         try {
             return doExecute(builder);
-        } catch (SQLException e) {
+        } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }
 
-    private static int doExecute(SqlBuilder builder) throws SQLException {
+    private static int doExecute(SqlBuilder builder) throws Exception {
         if (builder.parameters() == null) {
-            var statement = builder.connection().createStatement();
+            var statement = builder.connection().connection().createStatement();
             return statement.executeUpdate(builder.queryString());
         } else {
-            var statement = builder.connection().prepareStatement(builder.queryString());
-            var meta = statement.getParameterMetaData();
+            switch (builder.parameters()) {
+                case SqlBuilder.Parameters.Named(var parameters) -> {
+                    var statement = SqlPreparedStatement.named(builder.connection(), builder.queryString());
 
-            return statement.executeUpdate();
+                    for (var parameter : parameters) {
+                        statement.setValue(parameter);
+                    }
+
+                    return statement.executeUpdate();
+
+                }
+                case SqlBuilder.Parameters.Positional(var positionalParameters) -> {
+                    var statement =
+                            SqlPreparedStatement.positional(
+                                    builder.connection(),
+                                    builder.queryString()
+                            );
+
+                    for (var parameter : positionalParameters)
+                        statement.setValue(parameter);
+
+                    return statement.executeUpdate();
+                }
+
+            }
         }
     }
 }
