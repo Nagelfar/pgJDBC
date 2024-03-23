@@ -13,10 +13,10 @@ public class Sql {
     }
 
     public static SqlBuilder from(Connection connection) {
-        return new SqlBuilder(
+        return new SqlBuilderImplementation(
                 new ConnectionConfiguration(connection, TypeMap.defaultTypeMap),
                 null,
-                new SqlBuilder.Parameters.NoParameters()
+                new Parameters.NoParameters()
         );
     }
 
