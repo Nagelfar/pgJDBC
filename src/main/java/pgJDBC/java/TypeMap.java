@@ -10,7 +10,8 @@ public record TypeMap(Map<Class<?>, Integer> map) {
     public static TypeMap defaultTypeMap = new TypeMap(
             Map.of(
                     Integer.class, Types.INTEGER,
-                    UUID.class, Types.OTHER
+                    UUID.class, Types.OTHER,
+                    String.class, Types.VARCHAR
                 )
     );
 

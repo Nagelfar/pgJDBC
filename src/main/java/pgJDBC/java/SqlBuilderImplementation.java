@@ -59,13 +59,14 @@ record SqlBuilderImplementation(
     public <T> Collection<T> execute(Function<RowReader, T> map) {
         try {
             try (var statement = buildStatement(this)) {
-                var resultSet = statement.executeQuery();
-                var results = new ArrayList<T>();
-                var rowReader = new RowReader(resultSet);
-                while (resultSet.next()) {
-                    results.add(map.apply(rowReader));
+                try (var resultSet = statement.executeQuery()) {
+                    var results = new ArrayList<T>();
+                    var rowReader = new RowReader(resultSet);
+                    while (resultSet.next()) {
+                        results.add(map.apply(rowReader));
+                    }
+                    return results;
                 }
-                return results;
             }
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -85,8 +86,8 @@ record SqlBuilderImplementation(
             );
             case Parameters.Positional(var positional) -> applyParameters(
                     SqlPreparedStatement.positional(builder.connection(), builder.queryString()),
-                    positional)
-            ;
+                    positional
+            );
             case Parameters.NoParameters ignored ->
                     SqlStatement.noParameters(builder.connection(), builder.queryString());
         };
